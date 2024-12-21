@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution_items", ".solutio
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
+		README.md = README.md
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaCacheTracker.Web", "src\LambdaCacheTracker.Web\LambdaCacheTracker.Web.csproj", "{00576BD8-578F-45F0-9BF8-22C9FA44D503}"

@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
 </head>
 <body>
-<div>
-    <main role="main">
-        @RenderBody()
-    </main>
+<div class="container">
+    <div class="column column-25">
+    </div>
+    <div class="column column-50">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+    <div class="column column-25">
+    </div>
 </div>
 
 <script src="~/js/site.js" asp-append-version="true"></script>

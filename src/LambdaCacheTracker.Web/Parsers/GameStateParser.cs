@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace LambdaCacheTracker.Web.Parsers;
 
-public class GameStateParser
+public partial class GameStateParser
 {
     private readonly ILogger<GameStateParser> _logger;
 
@@ -16,7 +16,7 @@ public class GameStateParser
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(fileContent);
 
-        Regex dataPattern = new("\"data\"\\s*\"([^\"]+)\"", RegexOptions.Compiled);
+        Regex dataPattern = DataPatternRegex();
 
         var match = dataPattern.Match(fileContent);
 
@@ -26,7 +26,7 @@ public class GameStateParser
             return (false, null);
         }
 
-        var hexValue = match.Groups[1].Value;
+        string hexValue = match.Groups[1].Value;
 
         if (string.IsNullOrWhiteSpace(hexValue))
         {
@@ -35,10 +35,16 @@ public class GameStateParser
         }
 
         if (hexValue.StartsWith("0x")
-            && ulong.TryParse(hexValue.AsSpan(2), NumberStyles.HexNumber, null, out var result))
+            && ulong.TryParse(hexValue.AsSpan(2), NumberStyles.HexNumber, null, out ulong result))
+        {
             return (true, result);
+        }
 
         _logger.LogError("Failed to parse game state data");
+
         return (false, null);
     }
+
+    [GeneratedRegex("\"data\"\\s*\"([^\"]+)\"", RegexOptions.Compiled)]
+    private static partial Regex DataPatternRegex();
 }

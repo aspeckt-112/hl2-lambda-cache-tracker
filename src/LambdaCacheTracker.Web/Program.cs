@@ -1,3 +1,4 @@
+using LambdaCacheTracker.Web.Builders;
 using LambdaCacheTracker.Web.Parsers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,9 +9,11 @@ builder
 
 builder
     .Services
-    .AddScoped<GameStateParser>();
+    .AddScoped<GameStateParser>()
+    .AddScoped<ULongToBinaryParser>()
+    .AddScoped<ChapterBuilder>();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 app.UseRouting();
 

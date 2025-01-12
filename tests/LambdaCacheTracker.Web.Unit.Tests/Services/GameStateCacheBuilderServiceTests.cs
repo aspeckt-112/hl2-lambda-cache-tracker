@@ -49,6 +49,19 @@ public class GameStateCacheBuilderServiceTests
     }
     
     [Fact]
+    public void BuildCacheList_WhenGameStateIsValid_ShouldHaveElevenChapters()
+    {
+        // Arrange
+        string gameState = "0x0000000000000000";
+
+        // Act
+        var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
+
+        // Assert
+        chapters.Should().HaveCount(11);
+    }
+    
+    [Fact]
     public void BuildCacheList_WhenGameStateIsZero_AllCachesObtainedAreFalse()
     {
         // Arrange
@@ -58,7 +71,6 @@ public class GameStateCacheBuilderServiceTests
         var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
 
         // Assert
-        chapters.Should().HaveCount(12);
         chapters.Should().OnlyContain(chapter => chapter.Caches.All(cache => !cache.Obtained));
     }
     
@@ -72,7 +84,6 @@ public class GameStateCacheBuilderServiceTests
         var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
 
         // Assert
-        chapters.Should().HaveCount(12);
         chapters.Should().OnlyContain(chapter => chapter.Caches.All(cache => cache.Obtained));
     }
     
@@ -84,12 +95,10 @@ public class GameStateCacheBuilderServiceTests
         
         // Act
         var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
+        var caches = chapters!.SelectMany(chapter => chapter.Caches).ToList();
 
         // Assert
-        chapters.Should().HaveCount(12);
-        var caches = chapters.SelectMany(chapter => chapter.Caches).ToList();
         caches.First().Obtained.Should().BeTrue();
-        // The rest of the caches should be false
         caches.Skip(1).Should().OnlyContain(cache => !cache.Obtained);
     }
     
@@ -101,12 +110,10 @@ public class GameStateCacheBuilderServiceTests
         
         // Act
         var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
+        var caches = chapters!.SelectMany(chapter => chapter.Caches).ToList();
 
         // Assert
-        chapters.Should().HaveCount(12);
-        var caches = chapters.SelectMany(chapter => chapter.Caches).ToList();
         caches.Skip(1).First().Obtained.Should().BeTrue();
-        // The rest of the caches should be false
         caches.Take(1).Should().OnlyContain(cache => !cache.Obtained);
         caches.Skip(2).Should().OnlyContain(cache => !cache.Obtained);
     }
@@ -119,12 +126,10 @@ public class GameStateCacheBuilderServiceTests
         
         // Act
         var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
+        var caches = chapters!.SelectMany(chapter => chapter.Caches).ToList();
 
         // Assert
-        chapters.Should().HaveCount(12);
-        var caches = chapters.SelectMany(chapter => chapter.Caches).ToList();
         caches.Skip(20).Take(10).Should().OnlyContain(cache => cache.Obtained);
-        // The rest of the caches should be false
         caches.Take(20).Should().OnlyContain(cache => !cache.Obtained);
         caches.Skip(30).Should().OnlyContain(cache => !cache.Obtained);
     }
@@ -137,12 +142,10 @@ public class GameStateCacheBuilderServiceTests
         
         // Act
         var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
+        var caches = chapters!.SelectMany(chapter => chapter.Caches).ToList();
 
         // Assert
-        chapters.Should().HaveCount(12);
-        var caches = chapters.SelectMany(chapter => chapter.Caches).ToList();
         caches.Take(5).Should().OnlyContain(cache => cache.Obtained);
-        // The rest of the caches should be false
         caches.Skip(5).Should().OnlyContain(cache => !cache.Obtained);
     }
     
@@ -154,10 +157,9 @@ public class GameStateCacheBuilderServiceTests
         
         // Act
         var (_, chapters) = _gameStateCacheBuilderService.BuildObtainedCaches(gameState);
-
+        var caches = chapters!.SelectMany(chapter => chapter.Caches).ToList();
+        
         // Assert
-        chapters.Should().HaveCount(12);
-        var caches = chapters.SelectMany(chapter => chapter.Caches).ToList();
         caches.Take(5).Should().OnlyContain(cache => !cache.Obtained);
         caches.Skip(5).Take(5).Should().OnlyContain(cache => cache.Obtained);
     }

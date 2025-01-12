@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BDBC9B46-2EA7-4858-B57C-9BAE84737EAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DB93AE57-2620-4C1D-9617-A050CDE260E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".solution_items", ".solution_items", "{BA6C7F9E-A112-4028-B3D7-CFCE4EE0419B}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaCacheTracker.Web", "src\LambdaCacheTracker.Web\LambdaCacheTracker.Web.csproj", "{00576BD8-578F-45F0-9BF8-22C9FA44D503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaCacheTracker.Web.Unit.Tests", "tests\LambdaCacheTracker.Web.Unit.Tests\LambdaCacheTracker.Web.Unit.Tests.csproj", "{FFFB9CEB-AD8A-4612-88BF-F2BA35C1B89D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{00576BD8-578F-45F0-9BF8-22C9FA44D503} = {BDBC9B46-2EA7-4858-B57C-9BAE84737EAD}
+		{FFFB9CEB-AD8A-4612-88BF-F2BA35C1B89D} = {DB93AE57-2620-4C1D-9617-A050CDE260E5}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00576BD8-578F-45F0-9BF8-22C9FA44D503}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00576BD8-578F-45F0-9BF8-22C9FA44D503}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00576BD8-578F-45F0-9BF8-22C9FA44D503}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00576BD8-578F-45F0-9BF8-22C9FA44D503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFFB9CEB-AD8A-4612-88BF-F2BA35C1B89D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFFB9CEB-AD8A-4612-88BF-F2BA35C1B89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFFB9CEB-AD8A-4612-88BF-F2BA35C1B89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFFB9CEB-AD8A-4612-88BF-F2BA35C1B89D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,78 @@
+/* Base Styles */
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+}
+
+/* Light Theme */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* Dark Theme */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+/* Layout Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  width: 100%;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .column-25 {
+    width: 25%;
+  }
+
+  .column-50 {
+    width: 50%;
+  }
+}
+
+/* Font Styles */
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Element Styles */
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  border-radius: 5px; /* Adjust this value as needed */
+}
+
+ul {
+  list-style-type: square;
+  line-height: 2.0;
+}

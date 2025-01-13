@@ -6,29 +6,31 @@
 
 <div>
     <h1>@ViewData["Title"]</h1>
-    <p>Half Life 2 Lambda Cache Tracker is a tool to help you track your progress in finding all the Lambda Caches in
-        Half Life 2. You need to upload your gamestate.txt file to get started.</p>
-    <hr/>
-    <h2>Locating your gamestate.txt file</h2>
-    <p>Regardless of which OS you're using, the easiest way to find your gamestate.txt file is to open the properties of
-        Half Life 2 in your Steam library:</p>
-    <img src="images/game_properties.png" alt="Game Properties" style="max-width: 98%;"/>
-    <p>In the box that pops up, click "Installed Files" and then click the "Browse" button:</p>
-    <img src="images/installed_files.png" alt="Installed Files" style="max-width: 98%;"/>
-    <p>From there, you can navigate to <b>either</b> the "hl2" directory <b>or</b> the "hl2_complete" directory:</p>
-    <p><i>The "hl2_complete" directory is present if you have Half Life 2, Episode One and Episode Two installed
-            <b>or</b> if you have the 20th Anniversary Edition of Half Life 2 installed.</i></p>
-    <img src="images/file_explorer.png" alt="File Explorer" style="max-width: 98%;"/>
-    <p>Once you're in the correct directory, you should see the gamestate.txt file:</p>
-    <img src="images/game_state_file.png" alt="gamestate.txt" style="max-width: 98%;"/>
-    <hr/>
-    <h2>Upload your gamestate.txt file</h2>
-    <form id="uploadForm" enctype="multipart/form-data" method="post">
+    <p>Stuck trying to complete the Lambda Locator achievement in Half Life 2? This tool will help you track down the
+        caches you've missed by reading your gamestate.txt file and letting you know which caches you've found and
+        which ones you've missed.</p>
+    <div class="explanation">
+        <h2>How do I find my gamestate.txt file?</h2>
+        <p>Regardless of which operating system you're using, the easiest way to find your gamestate.txt file is to open the properties of
+            Half Life 2 in your Steam library:</p>
+        <img src="images/game_properties.png" alt="Game Properties" style="max-width: 98%;"/>
+        <p>In the box that pops up, click "Installed Files" and then click the "Browse" button:</p>
+        <img src="images/installed_files.png" alt="Installed Files" style="max-width: 98%;"/>
+        <p>From there, you can navigate to <b>either</b> the "hl2" directory <b>or</b> the "hl2_complete" directory:</p>
+        <p><i>The "hl2_complete" directory is present if you have Half Life 2, Episode One and Episode Two installed
+                <b>or</b> if you have the 20th Anniversary Edition of Half Life 2 installed.</i></p>
+        <img src="images/file_explorer.png" alt="File Explorer" style="max-width: 98%;"/>
+        <p>Once you're in the correct directory, you should see the gamestate.txt file:</p>
+        <img src="images/game_state_file.png" alt="gamestate.txt" style="max-width: 98%;"/>
+    </div>
+
+    <form id="uploadForm" enctype="multipart/form-data" method="post" class="upload-form">
         <div>
-            <input type="file" asp-for="Upload" />
+            <label for="file-upload" class="custom-file-upload">
+                Upload gamestate.txt
+            </label>
+            <input id="file-upload" type="file" asp-for="Upload" />
         </div>
-        <button type="submit">Track Lambda Caches</button>
     </form>
-    <hr/>
     <div id="caches"></div>
 </div>

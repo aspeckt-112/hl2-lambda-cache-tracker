@@ -2,13 +2,15 @@
 
 @foreach(var chapter in Model)
 {
-    <h3>@chapter.Title</h3>
-    <h4><a href="@chapter.VideoLink">@chapter.VideoLink</a></h4>
+    <div>
+        <h3>@chapter.Title</h3>
+        <h4><a href="@chapter.VideoLink">@chapter.VideoLink</a></h4>
+    </div>
     foreach (var cache in chapter.Caches)
     {
-        <div>
-            <h5 style="display: inline;">Cache # @cache.Number</h5>
-            <input type="checkbox" @(cache.Obtained ? "checked" : "") disabled style="display: inline;" />
+        <div class="cache-container">
+            <h5>Cache # @cache.Number</h5>
+            <input type="checkbox" @(cache.Obtained ? "checked" : "") disabled />
         </div>
     }
 }

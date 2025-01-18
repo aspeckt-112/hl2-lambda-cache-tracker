@@ -16,6 +16,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaCacheTracker.Web", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaCacheTracker.Web.Unit.Tests", "tests\LambdaCacheTracker.Web.Unit.Tests\LambdaCacheTracker.Web.Unit.Tests.csproj", "{FFFB9CEB-AD8A-4612-88BF-F2BA35C1B89D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{3AD14FEB-0CEF-47BE-9522-EDB6999340FE}"
+	ProjectSection(SolutionItems) = preProject
+		infrastructure\gamestate.txt = infrastructure\gamestate.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

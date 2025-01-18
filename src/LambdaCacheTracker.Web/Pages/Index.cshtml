@@ -3,36 +3,40 @@
 @{
     ViewData["Title"] = "Half Life 2 Lambda Cache Tracker";
 }
-
 <div>
     <h1>@ViewData["Title"]</h1>
     <p>Stuck trying to complete the Lambda Locator achievement in Half Life 2? This tool will help you track down the
         caches you've missed by reading your gamestate.txt file and letting you know which caches you've found and
-        which ones you've missed.</p>
+        which ones you've missed.
+    </p>
     <h2>This site is ugly!</h2>
     <p>Fix it then! <a href="https://github.com/aspeckt-112/hl2-lambda-cache-tracker">The source code is available on
-            GitHub</a>.</p>
+            GitHub</a>.
+    </p>
+    <h2>Can I give you all my money?</h2>
+    <p>I'm joking, obviously. Unless you're not, in which case I'm totally serious. Regardless, I run this site ad-free with no analytics or tracking. If you'd like to support with a very small donation to keep the site running, you can do so via:<br/><a href="https://www.buymeacoffee.com/aspeckt112" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a></p>
     <div class="explanation">
         <h2>How do I find my gamestate.txt file?</h2>
         <p>Regardless of which operating system you're using, the easiest way to find your gamestate.txt file is to open the properties of
-            Half Life 2 in your Steam library:</p>
+            Half Life 2 in your Steam library:
+        </p>
         <img src="images/game_properties.png" alt="Game Properties" style="max-width: 98%;"/>
         <p>In the box that pops up, click "Installed Files" and then click the "Browse" button:</p>
         <img src="images/installed_files.png" alt="Installed Files" style="max-width: 98%;"/>
         <p>From there, you can navigate to <b>either</b> the "hl2" directory <b>or</b> the "hl2_complete" directory:</p>
         <p><i>The "hl2_complete" directory is present if you have Half Life 2, Episode One and Episode Two installed
-                <b>or</b> if you have the 20th Anniversary Edition of Half Life 2 installed.</i></p>
+                <b>or</b> if you have the 20th Anniversary Edition of Half Life 2 installed.</i>
+        </p>
         <img src="images/file_explorer.png" alt="File Explorer" style="max-width: 98%;"/>
         <p>Once you're in the correct directory, you should see the gamestate.txt file:</p>
         <img src="images/game_state_file.png" alt="gamestate.txt" style="max-width: 98%;"/>
     </div>
-
     <form id="uploadForm" enctype="multipart/form-data" method="post" class="upload-form">
         <div>
             <label for="file-upload" class="custom-file-upload">
                 Upload gamestate.txt
             </label>
-            <input id="file-upload" type="file" asp-for="Upload" />
+            <input id="file-upload" type="file" name="Upload" />
         </div>
     </form>
     <div id="caches"></div>
